@@ -3,7 +3,7 @@ import hudson.model.Run
 import jenkins.model.CauseOfInterruption.UserInterruption
 
 def call() {
-    currentBuild.getCauses().each {
+    currentBuild.rawBuild.getCauses().each {
         if (cause instanceof Cause.UserIdCause) {
             echo "Cause.UserIdCause"
         }
