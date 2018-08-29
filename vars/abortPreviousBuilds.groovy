@@ -17,15 +17,4 @@ def call() {
         }
         previousBuild = previousBuild.getPreviousBuildInProgress()
     }
-    currentBuild.rawBuild.getCauses().each {
-        if (cause instanceof Cause.UserIdCause) {
-            echo ">> Cause.UserIdCause"
-        }
-        if (cause instanceof Cause.RemoteCause) {
-            echo ">> Cause.RemoteCause"
-        }
-        if (cause instanceof Cause.UpstreamCause) {
-            echo ">> Cause.UpstreamCause"
-        }
-    }
 }
