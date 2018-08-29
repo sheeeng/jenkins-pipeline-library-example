@@ -3,7 +3,7 @@ import hudson.model.Run
 import jenkins.model.CauseOfInterruption.UserInterruption
 
 def call() {
-    getCauses().each {
+    currentBuild.getCauses().each {
         println "Number ${it}"
     }
     // https://stackoverflow.com/a/49901413/4763512
