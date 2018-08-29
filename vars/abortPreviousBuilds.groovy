@@ -3,17 +3,6 @@ import hudson.model.Run
 import jenkins.model.CauseOfInterruption.UserInterruption
 
 def call() {
-    currentBuild.rawBuild.getCauses().each {
-        if (cause instanceof Cause.UserIdCause) {
-            echo "Cause.UserIdCause"
-        }
-        if (cause instanceof Cause.RemoteCause) {
-            echo "Cause.RemoteCause"
-        }
-        if (cause instanceof Cause.UpstreamCause) {
-            echo "Cause.UpstreamCause"
-        }
-    }
     // https://stackoverflow.com/a/49901413/4763512
     Run previousBuild = currentBuild.rawBuild.getPreviousBuildInProgress()
     while (previousBuild != null) {
@@ -27,5 +16,16 @@ def call() {
             }
         }
         previousBuild = previousBuild.getPreviousBuildInProgress()
+    }
+    currentBuild.rawBuild.getCauses().each {
+        if (cause instanceof Cause.UserIdCause) {
+            echo ">> Cause.UserIdCause"
+        }
+        if (cause instanceof Cause.RemoteCause) {
+            echo ">> Cause.RemoteCause"
+        }
+        if (cause instanceof Cause.UpstreamCause) {
+            echo ">> Cause.UpstreamCause"
+        }
     }
 }
