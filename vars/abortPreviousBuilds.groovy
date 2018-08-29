@@ -6,6 +6,7 @@ def call() {
     // shortCommit = sh(returnStdout: true, script: "git log -n 1 --pretty=format:'%h'").trim()
     // echo shortCommit
     
+    // https://stackoverflow.com/a/49901413/4763512
     Run previousBuild = currentBuild.rawBuild.getPreviousBuildInProgress()
     while (previousBuild != null) {
         if (previousBuild.isInProgress()) {
