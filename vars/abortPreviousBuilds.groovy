@@ -3,8 +3,8 @@ import hudson.model.Run
 import jenkins.model.CauseOfInterruption.UserInterruption
 
 def call() {
-    shortCommit = sh(returnStdout: true, script: "git log -n 1 --pretty=format:'%h'").trim()
-    echo shortCommit
+    // shortCommit = sh(returnStdout: true, script: "git log -n 1 --pretty=format:'%h'").trim()
+    // echo shortCommit
     
     Run previousBuild = currentBuild.rawBuild.getPreviousBuildInProgress()
     while (previousBuild != null) {
