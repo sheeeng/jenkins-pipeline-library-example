@@ -5,15 +5,24 @@ import jenkins.model.CauseOfInterruption.UserInterruption
 def call() {
     // https://stackoverflow.com/a/49901413/4763512
     Run currentBuild = currentBuild.rawBuild
-    currentBuild.getCauses().each {
+    List<Cause> causes = currentBuild.getCauses()
+    if (causes==null)
+        echo ">> Empty causes!"
+    else
+        echo ">> Got causes!"
+
+    causes.each {
         if (cause instanceof Cause.UserIdCause) {
             echo ">> Cause.UserIdCause"
         }
-        if (cause instanceof Cause.RemoteCause) {
+        else if (cause instanceof Cause.RemoteCause) {
             echo ">> Cause.RemoteCause"
         }
-        if (cause instanceof Cause.UpstreamCause) {
+        else if (cause instanceof Cause.UpstreamCause) {
             echo ">> Cause.UpstreamCause"
+        }
+        else {
+            echo ">> Unknown causes!"
         }
     }
 }
