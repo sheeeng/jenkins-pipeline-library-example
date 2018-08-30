@@ -11,18 +11,18 @@ def call() {
     else
         echo ">> Got causes!"
 
-    causes.each {
+    for (Cause cause : causes) {
         if (cause instanceof Cause.UserIdCause) {
-            echo ">> Cause.UserIdCause"
+            println ">> Cause.UserIdCause"
         }
         else if (cause instanceof Cause.RemoteCause) {
-            echo ">> Cause.RemoteCause"
+            println ">> Cause.RemoteCause"
         }
         else if (cause instanceof Cause.UpstreamCause) {
-            echo ">> Cause.UpstreamCause"
+            println ">> Cause.UpstreamCause"
         }
         else {
-            echo ">> Unknown causes!"
+            println ">> Unknown causes!"
         }
     }
 }
