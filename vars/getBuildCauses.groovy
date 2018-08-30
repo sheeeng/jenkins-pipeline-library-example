@@ -4,8 +4,8 @@ import jenkins.model.CauseOfInterruption.UserInterruption
 
 def call() {
     // https://stackoverflow.com/a/49901413/4763512
-    Run previousBuild = currentBuild.rawBuild.getPreviousBuildInProgress()
-    previousBuild.rawBuild.getCauses().each {
+    Run currentBuild = currentBuild.rawBuild
+    currentBuild.getCauses().each {
         if (cause instanceof Cause.UserIdCause) {
             echo ">> Cause.UserIdCause"
         }
