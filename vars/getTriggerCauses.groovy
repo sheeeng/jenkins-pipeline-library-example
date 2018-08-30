@@ -6,7 +6,6 @@ def call() {
     // https://stackoverflow.com/a/49901413/4763512
     Run previousBuild = currentBuild.rawBuild.getPreviousBuildInProgress()
     currentBuild.rawBuild.getCauses().each {
-        println ">> Cause:" cause
         if (cause instanceof Cause.UserIdCause) {
             echo ">> Cause.UserIdCause"
         }
