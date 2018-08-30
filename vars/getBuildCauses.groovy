@@ -14,6 +14,7 @@ def call() {
     for (Cause cause : causes) {
         if (cause instanceof Cause.UserIdCause) {
             println ">> Cause.UserIdCause"
+            println ">> " currentBuild.rawBuild.getCause(hudson.model.Cause$UserIdCause)
         }
         else if (cause instanceof Cause.RemoteCause) {
             println ">> Cause.RemoteCause"
