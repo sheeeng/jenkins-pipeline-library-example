@@ -13,7 +13,8 @@ def call() {
 
     for (Cause cause : causes) {
         if (cause instanceof Cause.UserIdCause) {
-            println ">> Cause.UserIdCause: cause.getShortDescription()"
+            println ">> Cause.UserIdCause"
+            println cause.getShortDescription()
         }
         else if (cause instanceof Cause.RemoteCause) {
             println ">> Cause.RemoteCause"
