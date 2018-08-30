@@ -3,13 +3,6 @@ import hudson.model.Run
 import jenkins.model.CauseOfInterruption.UserInterruption
 
 def call() {
-    // https://stackoverflow.com/a/47652580/4763512
-    Jenkins.instance.getAllItems(AbstractProject.class).each {
-        hudson.model.Cause cause = it.getLastBuild().getCause(hudson.model.Cause.class)
-        println "Is triggered by user: " + (cause.class == hudson.model.Cause.UserIdCause.class)
-    }
-
-
     // https://stackoverflow.com/a/49901413/4763512
     Run previousBuild = currentBuild.rawBuild.getPreviousBuildInProgress()
     currentBuild.rawBuild.getCauses().each {
