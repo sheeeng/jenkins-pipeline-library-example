@@ -1,13 +1,8 @@
 import hudson.model.Result
 import hudson.model.Run
 import jenkins.model.CauseOfInterruption.UserInterruption
-import jenkins.model.*
-
 
 def call() {
-    // https://stackoverflow.com/a/47139746/4763512
-    jenkins = Jenkins.instance
-
     // https://stackoverflow.com/a/47652580/4763512
     Jenkins.instance.getAllItems(AbstractProject.class).each {
         hudson.model.Cause cause = it.getLastBuild().getCause(hudson.model.Cause.class)
