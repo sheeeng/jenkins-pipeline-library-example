@@ -1,4 +1,6 @@
+import hudson.model.Result
 import hudson.model.Run
+import jenkins.model.CauseOfInterruption.UserInterruption
 
 def call() {
     // https://stackoverflow.com/a/49901413/4763512
