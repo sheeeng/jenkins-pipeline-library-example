@@ -5,7 +5,11 @@ import jenkins.model.CauseOfInterruption.UserInterruption
 def call() {
     // https://stackoverflow.com/a/49901413/4763512
     Run currentBuild = currentBuild.rawBuild
+
+    // https://javadoc.jenkins.io/hudson/model/Cause.html
     List<Cause> causes = currentBuild.getCauses()
+
+
     if (causes==null)
         echo ">> Empty causes!"
     else
