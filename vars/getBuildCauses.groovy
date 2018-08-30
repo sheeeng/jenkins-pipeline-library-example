@@ -13,8 +13,7 @@ def call() {
 
     for (Cause cause : causes) {
         if (cause instanceof Cause.UserIdCause) {
-            println ">> Cause.UserIdCause"
-            println ">> " currentBuild.getCause(hudson.model.Cause$UserIdCause)
+            println ">> Cause.UserIdCause: cause.getShortDescription()"
         }
         else if (cause instanceof Cause.RemoteCause) {
             println ">> Cause.RemoteCause"
